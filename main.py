@@ -1,5 +1,14 @@
+from src import Loader
 from src.Category import Category
 from src.Product import Product
+
+def display_from_file():
+    data = Loader.load_categories_from_file("./data/products.json")
+    for category in data:
+        print(f"Category: {category.name}\nDescription: {category.description}\nList of products:\n")
+        for product in category.products:
+            print(f"---\nProduct: {product.name}\nDescription: {product.description}\nPrice: {product.price}\nQuantity: {product.quantity}\n---")
+        print("****")
 
 if __name__ == "__main__":
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
@@ -47,3 +56,6 @@ if __name__ == "__main__":
 
     print(Category.category_count)
     print(Category.product_count)
+
+    print("***")
+    display_from_file()
