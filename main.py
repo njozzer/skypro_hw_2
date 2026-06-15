@@ -58,4 +58,5 @@ if __name__ == "__main__":
     print(Category.product_count)
 
     print("***")
+    #Доп задание
     display_from_file()
