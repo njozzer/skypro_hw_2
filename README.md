@@ -31,7 +31,17 @@ pip install -r requirements.txt
 poetry install
 ```
 ### **Модули:**
-
+```
+src/utils
+```
+Класс категорий
+```
+src/Category
+```
+Класс продуктов
+```
+src/Product
+```
 ### **Тестирование:**
 Протестировать модули можно через команды:
 ```

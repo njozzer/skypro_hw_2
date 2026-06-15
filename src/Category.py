@@ -1,3 +1,10 @@
+from src import Product
+
+
 class Category:
-    def __init__(self):
+    name: str
+    description: str
+    products: list[Product.Product]
+
+    def __init__(self) -> None:
         pass

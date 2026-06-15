@@ -5,4 +5,7 @@ class Product:
     quantity: int
 
     def __init__(self, name: str, description: str, price: float, quantity: int) -> None:
-        pass
+        self.name = name
+        self.description = description
+        self.price = price
+        self.quantity = quantity
