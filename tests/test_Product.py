@@ -92,3 +92,19 @@ def test_product_new_product_with_list() -> None:
     assert product_test.name == "Samsung Galaxy S23 Ultra"
     assert product_test.price == 180000.0
     assert product_test.quantity == 25
+
+
+def test_product_add() -> None:
+    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    result = product1 + product2
+    assert result == 2580000.0
+def test_product_add_Exception() -> None:
+    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    try:
+        result = product1 + 3
+    except TypeError:
+        pass
+def test_product_str() -> None:
+    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    assert product1.__str__() == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."

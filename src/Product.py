@@ -58,5 +58,8 @@ class Product:
     def __str__(self) -> str:
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
-    def __add__(self, other: Self) -> float:
-        return self.quantity * self.price + other.quantity * other.price
+    def __add__(self, other: object) -> float:
+        if not isinstance(other, Product):
+            return NotImplemented
+        else:
+            return self.quantity * self.price + other.quantity * other.price
