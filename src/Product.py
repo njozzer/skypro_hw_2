@@ -4,13 +4,13 @@ from typing import Self
 class Product:
     name: str
     description: str
-    __price: float
+    __price: float = 0.0
     quantity: int
 
-    def __init__(self, name: str, description: str, price: float, quantity: int) -> None:
+    def __init__(self, name: str, description: str, price_t: float, quantity: int) -> None:
         self.name = name
         self.description = description
-        self.__price = price
+        self.__price = price_t
         self.quantity = quantity
 
     @property
@@ -22,12 +22,18 @@ class Product:
         if price_2 <= 0.0:
             print("Ошибка: Цена должна быть больше 0")
         else:
-            if self.__price < price_2:
-                result = str(
-                    input("Изменить цену на меньшую?[y/n]")
-                )  # input в сеттере не работает ?!!! зачем задание такое?
-                if result.lower() == "y":
-                    self.__price = price_2
+            if self.__price > price_2:
+                while True:
+                    result = str(
+                        input("Изменить цену на меньшую?[y/n]")
+                    )  # input в сеттере не работает ?!!! зачем задание такое?
+                    if result.lower() == "y":
+                        self.__price = price_2
+                        break
+                    elif result.lower() == "n":
+                        break
+                    else:
+                        print("Можно вводить только [y/n]")
             else:
                 self.__price = price_2
 
