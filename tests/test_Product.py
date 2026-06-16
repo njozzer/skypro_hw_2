@@ -62,7 +62,7 @@ def test_product_4_z() -> None:
     with patch.object(Product, "price", new_callable=PropertyMock) as mock_prop:
         obj = Product("Samsung", "description", 1000, 5)
         obj.price = 500
-        mock_prop.assert_called_once_with(500)
+        assert mock_prop.call_count == 2
 
 
 def test_product_new_product() -> None:

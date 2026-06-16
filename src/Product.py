@@ -1,17 +1,20 @@
 from typing import Self
 
+from src.BaseProduct import BaseProduct
+from src.MixinLog import MixinLog
 
-class Product:
-    name: str
-    description: str
+
+class Product(BaseProduct, MixinLog):
+
     __price: float = 0.0
-    quantity: int
 
     def __init__(self, name: str, description: str, price_t: float, quantity: int) -> None:
+
         self.name = name
         self.description = description
         self.__price = price_t
         self.quantity = quantity
+        MixinLog.__init__(self)
 
     @property
     def price(self) -> float:
