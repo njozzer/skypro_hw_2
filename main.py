@@ -6,8 +6,7 @@ def display_from_file():
     data = Loader.load_categories_from_file("./data/products.json")
     for category in data:
         print(f"Category: {category.name}\nDescription: {category.description}\nList of products:\n")
-        for product in category.products:
-            print(f"---\nProduct: {product.name}\nDescription: {product.description}\nPrice: {product.price}\nQuantity: {product.quantity}\n---")
+        print(category.products)
         print("****")
 
 if __name__ == "__main__":
