@@ -1,5 +1,3 @@
-from itertools import product
-
 from src.Product import Product
 
 
@@ -25,8 +23,3 @@ class Category:
     def products(self) -> str:
         data = [f"{prod.name}, {prod.price} руб. Остаток: {prod.quantity} шт." for prod in self.__products]
         return "\n".join(data)
-
-    @classmethod
-    def new_product(cls, product_dict: dict) -> Product:
-        new_product = Product(product_dict.get("name"), product_dict.get("description"), product_dict.get("price"), product_dict.get("quantity"))
-        return new_product
