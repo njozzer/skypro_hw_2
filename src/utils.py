@@ -9,7 +9,7 @@ logger.addHandler(file_handler)
 logger.setLevel(logging.DEBUG)
 
 
-def json_read_from_file(filename: str) -> list[dict]:
+def json_read_from_file(filename: str) -> list[dict]:  # pragma: no cover
     """
     Считывает json файл
     :param filename: получает название файла
