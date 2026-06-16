@@ -38,7 +38,7 @@ class Product:
                 if str(product_dict.get("name", "name")) == product.name:
                     product.quantity += product_dict.get("quantity", 0)
                     product.price = (
-                        product.price if product_dict.get("price", 0) > product.price else product_dict.get("price", 0)
+                        product.price if product_dict.get("price", 0) < product.price else product_dict.get("price", 0)
                     )
                     return product
 
