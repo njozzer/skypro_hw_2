@@ -125,3 +125,4 @@ def test_product_add_different_types() -> None:
     )
     with pytest.raises(TypeError):
         grass1 + smartphone1
+
