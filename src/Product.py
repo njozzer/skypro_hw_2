@@ -18,16 +18,18 @@ class Product:
         return self.__price
 
     @price.setter
-    def price(self, price: float) -> None:
-
-        if price <= 0:
+    def price(self, price_2: float) -> None:
+        if price_2 <= 0.0:
             print("Ошибка: Цена должна быть больше 0")
         else:
-            if self.__price < price:
-                result = input("Изменить цену на меньшую?[y/n]")
+            if self.__price < price_2:
+                result = str(
+                    input("Изменить цену на меньшую?[y/n]")
+                )  # input в сеттере не работает ?!!! зачем задание такое?
                 if result.lower() == "y":
-                    self.__price = price
-            self.__price = price
+                    self.__price = price_2
+            else:
+                self.__price = price_2
 
     @classmethod
     def new_product(cls, product_dict: dict, product_list: list[Self] = []) -> Self:

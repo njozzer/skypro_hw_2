@@ -11,4 +11,4 @@ def test_categories(category: Category, category_2: Category) -> None:
     assert category.name == "Phones"
     assert category_2.name == "Laptops"
     assert Category.product_count == 4
-    assert Category.category_count == 2
+    assert Category.category_count == 3

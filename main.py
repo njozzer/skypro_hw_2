@@ -48,3 +48,23 @@ if __name__ == "__main__":
     print(new_product.price)
     new_product.price = 0
     print(new_product.price)
+    print("****\nЗадание 3*")
+    new_product_2 = Product.new_product(
+        {
+            "name": "Samsung Galaxy S23 Ultra",
+            "description": "256GB, Серый цвет, 200MP камера",
+            "price": 180000.0,
+            "quantity": 10,
+        },
+        [product1, product2, product3],
+    )
+    print(new_product_2.name)
+    print(new_product_2.description)
+    print(new_product_2.price)
+    print(new_product_2.quantity)
+    print("****\nЗадание 4*")
+    try:
+        new_product_2.price = 120000.0
+    except Exception as e:
+        print(e)
+    print(new_product_2.price)
