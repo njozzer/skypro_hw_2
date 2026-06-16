@@ -1,5 +1,7 @@
 from unittest.mock import PropertyMock, patch
 
+import pytest
+
 from src.Product import Product
 
 
@@ -101,10 +103,10 @@ def test_product_add() -> None:
     assert result == 2580000.0
 def test_product_add_Exception() -> None:
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
-    try:
+    with pytest.raises(TypeError) as exc_info:
         result = product1 + 3
-    except TypeError:
-        pass
+        raise TypeError("Неверный тип")
+    assert "unsupported operand type" in str(exc_info.value)
 def test_product_str() -> None:
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     assert product1.__str__() == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
