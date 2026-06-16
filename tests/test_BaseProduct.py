@@ -27,4 +27,4 @@ def test_base_product() -> None:
 
 def test_base_product_instance() -> None:
     with pytest.raises(TypeError):
-        BaseProduct("Dummy Product", "description", 1000, 5)  # type: ignore[abstract]
+        BaseProduct("Dummy Product", "description", 1000.0, 5)  # type: ignore[abstract]

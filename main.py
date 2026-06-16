@@ -1,6 +1,5 @@
 from src import Loader
 from src.Category import Category
-
 from src.Product import Product
 
 
