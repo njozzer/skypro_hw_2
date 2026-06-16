@@ -101,12 +101,16 @@ def test_product_add() -> None:
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
     result = product1 + product2
     assert result == 2580000.0
+
+
 def test_product_add_Exception() -> None:
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     with pytest.raises(TypeError) as exc_info:
-        result = product1 + 3
+        product1 + 3
         raise TypeError("Неверный тип")
     assert "unsupported operand type" in str(exc_info.value)
+
+
 def test_product_str() -> None:
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     assert product1.__str__() == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."

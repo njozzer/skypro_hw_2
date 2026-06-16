@@ -31,6 +31,7 @@ def test_category_products_property(category: Category) -> None:
 def test_category_str(category: Category) -> None:
     assert category.__str__() == "Phones, количество продуктов: 5 шт."
 
+
 def test_category_iter() -> None:
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
