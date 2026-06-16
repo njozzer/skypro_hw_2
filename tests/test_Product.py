@@ -2,7 +2,9 @@ from unittest.mock import PropertyMock, patch
 
 import pytest
 
+from src.LawnGrass import LawnGrass
 from src.Product import Product
+from src.Smartphone import Smartphone
 
 
 def test_product(product_1: Product) -> None:
@@ -114,3 +116,12 @@ def test_product_add_Exception() -> None:
 def test_product_str() -> None:
     product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     assert product1.__str__() == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
+
+
+def test_product_add_different_types() -> None:
+    grass1 = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
+    smartphone1 = Smartphone(
+        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5, "S23 Ultra", 256, "Серый"
+    )
+    with pytest.raises(TypeError):
+        grass1 + smartphone1

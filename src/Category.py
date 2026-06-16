@@ -18,7 +18,7 @@ class Category:
         Category.product_count += len(products) if products else 0
 
     def add_product(self, added_product: Product) -> None:
-        if not isinstance(added_product, Product) :
+        if not isinstance(added_product, Product):
             raise TypeError
         self.__products.append(added_product)
         Category.product_count += 1
