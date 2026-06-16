@@ -1,5 +1,7 @@
+from unittest.mock import PropertyMock, patch
+
 from src.Product import Product
-from unittest.mock import mock_open, patch, PropertyMock
+
 
 def test_product(product_1: Product) -> None:
     assert product_1.name == "Samsung"
@@ -14,13 +16,13 @@ def test_product_2() -> None:
     assert product_test.price == 2000
 
 
-
 def test_product_3() -> None:
     product_test = Product("Samsung", "description", 1000, 5)
     assert product_test.name == "Samsung"
     assert product_test.price == 1000
     product_test.price = -100
     assert product_test.price == 1000
+
 
 def test_product_4_y() -> None:
     with patch("builtins.input", return_value="y") as mock_input:
@@ -31,6 +33,7 @@ def test_product_4_y() -> None:
         assert product_test.price == 500
         assert mock_input.call_count == 1
 
+
 def test_product_4_n() -> None:
     with patch("builtins.input", return_value="n") as mock_input:
         product_test = Product("Samsung", "description", 1000, 5)
@@ -40,8 +43,19 @@ def test_product_4_n() -> None:
         assert product_test.price == 1000
         mock_input.assert_called_once_with("Изменить цену на меньшую?[y/n]")
 
+
+def test_product_4_k() -> None:
+    with patch("builtins.input", side_effect=["k", "n"]) as mock_input:
+        product_test = Product("Samsung", "description", 1000, 5)
+        assert product_test.name == "Samsung"
+        assert product_test.price == 1000
+        product_test.price = 500
+        assert product_test.price == 1000
+        assert mock_input.call_count == 2
+
+
 def test_product_4_z() -> None:
-    with patch.object(Product, 'price', new_callable=PropertyMock) as mock_prop:
+    with patch.object(Product, "price", new_callable=PropertyMock) as mock_prop:
         obj = Product("Samsung", "description", 1000, 5)
         obj.price = 500
         mock_prop.assert_called_once_with(500)
