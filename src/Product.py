@@ -54,3 +54,9 @@ class Product:
             float(product_dict.get("price", 0.0)),
             int(product_dict.get("quantity", 0)),
         )
+
+    def __str__(self) -> str:
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other) -> float:
+        return self.quantity * self.price + other.quantity * other.price

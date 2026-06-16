@@ -1,3 +1,5 @@
+from more_itertools.recipes import quantify
+
 from src.Product import Product
 
 
@@ -23,3 +25,20 @@ class Category:
     def products(self) -> str:
         data = [f"{prod.name}, {prod.price} руб. Остаток: {prod.quantity} шт." for prod in self.__products]
         return "\n".join(data)
+
+    def __str__(self) -> str:
+        count_list = [item.quantity for item in self.__products]
+        quantity = sum(count_list)
+        return f"{self.name}, количество продуктов: {quantity} шт."
+
+    def __iter__(self):
+        """Возвращает итератор."""
+        self.current_value = -1
+        return self
+
+    def __next__(self):
+        if self.current_value < len(self.__products):
+            self.current_value += 1
+            return self.current_value
+        else:
+            raise StopIteration
