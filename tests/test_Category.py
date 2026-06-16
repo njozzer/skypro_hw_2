@@ -47,3 +47,9 @@ def test_category_iter() -> None:
     assert category1_iter.__next__() == product3
     with pytest.raises(StopIteration):
         category1_iter.__next__()
+
+
+def test_category_add_product(category: Category) -> None:
+    with pytest.raises(TypeError) as exc_info:
+        category.add_product(4)  # type: ignore[arg-type]
+        assert exc_info.value.args[0]
