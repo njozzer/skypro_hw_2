@@ -11,7 +11,7 @@ class DummyProduct(BaseProduct):
         return "Dummy Product"
 
     def __add__(self, other: Self) -> float:
-        super().__add__(other)
+
         return self.quantity + other.quantity
 
     def __init__(self, name: str, description: str, price: float, quantity: int):
