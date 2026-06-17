@@ -13,6 +13,8 @@ class Product(BaseProduct, MixinLog):
         self.name = name
         self.description = description
         self.__price = price_t
+        if quantity == 0:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
         self.quantity = quantity
         MixinLog.__init__(self)
 
