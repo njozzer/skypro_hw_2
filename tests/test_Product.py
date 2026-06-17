@@ -125,3 +125,9 @@ def test_product_add_different_types() -> None:
     )
     with pytest.raises(TypeError):
         grass1 + smartphone1
+
+def test_product_zero_quantity()-> None:
+    try:
+        product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 0)
+    except ValueError as exc:
+        assert exc.args[0] == 'Товар с нулевым количеством не может быть добавлен'
