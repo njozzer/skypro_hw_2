@@ -47,9 +47,7 @@ class Category:
 
     def middle_price(self) -> float:
         try:
-            avg_price = sum([product.price for product in self.__products]) / sum(
-                [product.quantity for product in self.__products]
-            )
+            avg_price = sum([product.price for product in self.__products]) / len(self.__products)
             return avg_price
         except Exception:
             return 0.0
