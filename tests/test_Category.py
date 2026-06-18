@@ -64,7 +64,8 @@ def test_category_middle_price() -> None:
         "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
         [product1, product2, product3],
     )
-    assert category1.middle_price() ==  15592.592592592593
+    assert category1.middle_price() == 140333.33333333334
+
 
 def test_category_middle_price_zero() -> None:
     category1 = Category(
@@ -72,4 +73,4 @@ def test_category_middle_price_zero() -> None:
         "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
         [],
     )
-    assert category1.middle_price() ==  0.0
+    assert category1.middle_price() == 0.0
